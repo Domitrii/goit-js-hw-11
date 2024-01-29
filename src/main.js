@@ -5,7 +5,7 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const BASE_URL = 'https://pixabay.com/api';
 const API_KEY = '42057283-adafa6fc2ce046555d94b0faa';
-let loading = document.getElementById('loading');
+let loading = document.querySelector('.loading');
 
 const refs = {
     form: document.querySelector('.form'),  
@@ -38,11 +38,11 @@ refs.form.addEventListener('submit', submitFunction);
 function hideLoader() {
     setTimeout(() => {
         loading.classList.add('is-hidden');
-        }, 2000);
+        }, 500);
   };
 
   function showLoader() {
-        loading.classList.remove('is-hidden');
+    loading.classList.remove('is-hidden')
   }; 
 
 function submitFunction(event) {
@@ -51,19 +51,18 @@ function submitFunction(event) {
     const form = event.currentTarget;
     
     const name = form.elements.input.value.trim();
+    showLoader()
     
     if (!name) {
         showErrorMessage('Please enter a search term');
         return;
     }
 
-
  imageByName(name)
         .then(data => {
             const hits = data.hits;
             const markup = hits.map(largeImageURL => createMarkUp(largeImageURL)).join(' ');
             refs.resultContainer.innerHTML = markup;
-            showLoader()
             lightbox.refresh();
         })
         .finally(() => form.reset()).finally(hideLoader());

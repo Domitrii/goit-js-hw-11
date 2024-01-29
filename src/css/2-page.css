@@ -1,3 +1,7 @@
+textarea:focus, input:focus{
+    outline: none;
+}
+
 a{
     text-decoration: none;
     color: #000;
@@ -29,11 +33,24 @@ a{
 .form-input{
     width: 320px;
     height: 22px;
+    padding-left: 10px;
+    border-radius: 15px;
+    padding: 5px;
+    border: #000 solid 0.1px;
 }
 
 .search-button{
-    height: 28px;
-    width: 120px;
+    padding: 10px 45px;
+    border: none;
+    background-color: #0080ff;
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.search-button:hover{
+    background-color: #1f8fff;
+    border: #000 solid 0.2px;
 }
 
 .resultContainer{
