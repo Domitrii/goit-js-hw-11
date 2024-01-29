@@ -5,7 +5,7 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const BASE_URL = 'https://pixabay.com/api';
 const API_KEY = '42057283-adafa6fc2ce046555d94b0faa';
-const loading = document.getElementById('loading');
+let loading = document.getElementById('loading');
 
 const refs = {
     form: document.querySelector('.form'),  
@@ -34,22 +34,21 @@ function showErrorMessage(message) {
   });
 
 refs.form.addEventListener('submit', submitFunction);
-refs.form.addEventListener('submit', showLoader)
 
 function hideLoader() {
     setTimeout(() => {
-        refs.resultContainer.classList.add('is-hidden');
-        }, 500);
+        loading.classList.add('is-hidden');
+        }, 2000);
   };
 
   function showLoader() {
-        refs.resultContainer.classList.remove('is-hidden');
+        loading.classList.remove('is-hidden');
   }; 
 
 function submitFunction(event) {
     event.preventDefault();
     refs.resultContainer.innerHTML = '';
-    const form = event.currentTarget
+    const form = event.currentTarget;
     
     const name = form.elements.input.value.trim();
     
@@ -58,14 +57,16 @@ function submitFunction(event) {
         return;
     }
 
+
  imageByName(name)
         .then(data => {
             const hits = data.hits;
             const markup = hits.map(largeImageURL => createMarkUp(largeImageURL)).join(' ');
             refs.resultContainer.innerHTML = markup;
-            console.log(createMarkUp.hits)
+            showLoader()
+            lightbox.refresh();
         })
-        .finally(() => form.reset());
+        .finally(() => form.reset()).finally(hideLoader());
 }
 
 function imageByName(name){
