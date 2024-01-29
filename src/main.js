@@ -96,7 +96,7 @@ function createMarkUp({webformatURL,largeImageURL,tags,likes,views,comments,down
         width="20"
         height="20"
         class="icon-in-block">
-        <use href="../icons.svg#icon-heart"></use>
+        <use href="./icons.svg#icon-heart"></use>
         </svg>
         <span class="descr-span">${likes}</span> 
         </span>
@@ -105,7 +105,7 @@ function createMarkUp({webformatURL,largeImageURL,tags,likes,views,comments,down
         width="20"
         height="20"
         class="icon-in-block">
-        <use href="../icons.svg#icon-eye"></use>
+        <use href="./icons.svg#icon-eye"></use>
         </svg>
         <span class="descr-span">${views}</span> 
         </span>
@@ -114,7 +114,7 @@ function createMarkUp({webformatURL,largeImageURL,tags,likes,views,comments,down
         width="20"
         height="20"
         class="icon-in-block">
-        <use href="../icons.svg#icon-bubble2"></use>
+        <use href="./icons.svg#icon-bubble2"></use>
         </svg>
         <span class="descr-span">${comments}</span> 
         </span>
@@ -123,7 +123,7 @@ function createMarkUp({webformatURL,largeImageURL,tags,likes,views,comments,down
         width="20"
         height="20"
         class="icon-in-block">
-        <use href="../icons.svg#icon-arrow-down"></use>
+        <use href="./icons.svg#icon-arrow-down"></use>
         </svg>
         <span class="descr-span">${downloads}</span>
         </span>
