@@ -12,7 +12,7 @@ import{S as l,i as u}from"./assets/vendor-5b791d57.js";(function(){const t=docum
         width="20"
         height="20"
         class="icon-in-block">
-        <use href="./icons.svg#icon-heart"></use>
+        <use href="../icons.svg#icon-heart"></use>
         </svg>
         <span class="descr-span">${i}</span> 
         </span>
@@ -21,7 +21,7 @@ import{S as l,i as u}from"./assets/vendor-5b791d57.js";(function(){const t=docum
         width="20"
         height="20"
         class="icon-in-block">
-        <use href="./icons.svg#icon-eye"></use>
+        <use href="../icons.svg#icon-eye"></use>
         </svg>
         <span class="descr-span">${e}</span> 
         </span>
@@ -30,7 +30,7 @@ import{S as l,i as u}from"./assets/vendor-5b791d57.js";(function(){const t=docum
         width="20"
         height="20"
         class="icon-in-block">
-        <use href="./icons.svg#icon-bubble2"></use>
+        <use href="../icons.svg#icon-bubble2"></use>
         </svg>
         <span class="descr-span">${s}</span> 
         </span>
@@ -39,7 +39,7 @@ import{S as l,i as u}from"./assets/vendor-5b791d57.js";(function(){const t=docum
         width="20"
         height="20"
         class="icon-in-block">
-        <use href="./icons.svg#icon-arrow-down"></use>
+        <use href="../icons.svg#icon-arrow-down"></use>
         </svg>
         <span class="descr-span">${r}</span>
         </span>
