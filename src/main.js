@@ -34,13 +34,17 @@ function showErrorMessage(message) {
   });
 
 refs.form.addEventListener('submit', submitFunction);
-refs.form.addEventListener('submit', addHidden);
+refs.form.addEventListener('submit', showLoader)
 
-function addHidden(){
+function hideLoader() {
     setTimeout(() => {
-        
-    })
-}
+        refs.resultContainer.classList.add('is-hidden');
+        }, 500);
+  };
+
+  function showLoader() {
+        refs.resultContainer.classList.remove('is-hidden');
+  }; 
 
 function submitFunction(event) {
     event.preventDefault();
