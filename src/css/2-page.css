@@ -53,7 +53,7 @@ a{
     border: #000 solid 0.2px;
 }
 
-.resultContainer{
+.gallery{
     display: flex;
     flex-wrap: wrap;
     gap: 12px 12px;

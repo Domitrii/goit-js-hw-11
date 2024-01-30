@@ -11,7 +11,6 @@ const refs = {
     form: document.querySelector('.form'),  
     input: document.querySelector('.form-input'), 
     gallery: document.querySelector('.gallery'),
-    resultContainer: document.querySelector('.resultContainer'),
     searchBtn: document.querySelector('.search-button'), 
 };
 
@@ -47,22 +46,27 @@ function hideLoader() {
 
 function submitFunction(event) {
     event.preventDefault();
-    refs.resultContainer.innerHTML = '';
+    refs.gallery.innerHTML = '';
     const form = event.currentTarget;
     
     const name = form.elements.input.value.trim();
     showLoader()
-    
+
     if (!name) {
+      hideLoader()
       showErrorMessage('Please enter a search term');
       return;
     }
+
     
     imageByName(name)
         .then(data => {
             const hits = data.hits;
+            if(hits.length === 0){
+              showErrorMessage("Sorry, there are no images matching your search query. Please try again!")
+            }
             const markup = hits.map(largeImageURL => createMarkUp(largeImageURL)).join(' ');
-            refs.resultContainer.innerHTML = markup;
+            refs.gallery.innerHTML = markup;
             lightbox.refresh();
         }).catch()
         .finally(() => form.reset()).finally(hideLoader());
@@ -96,7 +100,7 @@ function createMarkUp({webformatURL,largeImageURL,tags,likes,views,comments,down
         width="20"
         height="20"
         class="icon-in-block">
-        <use href="${heart}"></use>
+        <use href="../icons.svg#icon-heart"></use>
         </svg>
         <span class="descr-span">${likes}</span> 
         </span>
