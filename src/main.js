@@ -54,17 +54,17 @@ function submitFunction(event) {
     showLoader()
     
     if (!name) {
-        showErrorMessage('Please enter a search term');
-        return;
+      showErrorMessage('Please enter a search term');
+      return;
     }
-
- imageByName(name)
+    
+    imageByName(name)
         .then(data => {
             const hits = data.hits;
             const markup = hits.map(largeImageURL => createMarkUp(largeImageURL)).join(' ');
             refs.resultContainer.innerHTML = markup;
             lightbox.refresh();
-        })
+        }).catch()
         .finally(() => form.reset()).finally(hideLoader());
 }
 
@@ -76,7 +76,7 @@ function imageByName(name){
                 `The search field can't be empty! Please, enter your request!`
               );
               return;
-        }
+            }
         return res.json()
     })
 }
@@ -96,7 +96,7 @@ function createMarkUp({webformatURL,largeImageURL,tags,likes,views,comments,down
         width="20"
         height="20"
         class="icon-in-block">
-        <use href="../icons.svg#icon-heart"></use>
+        <use href="${heart}"></use>
         </svg>
         <span class="descr-span">${likes}</span> 
         </span>
